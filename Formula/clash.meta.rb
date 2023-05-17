@@ -1,11 +1,13 @@
 class ClashMeta < Formula
   desc "ClashMeta"
   homepage "https://github.com/MetaCubeX/Clash.Meta"
-  url "https://github.com/MetaCubeX/Clash.Meta/releases/download/v1.14.4/clash.meta-darwin-arm64-v1.14.4.gz"
+  version "1.14.4"
+  url "https://github.com/MetaCubeX/Clash.Meta/releases/download/v#{version}/clash.meta-darwin-arm64-v#{version}.gz"
   sha256 "735fb8a2fda2eb9abde5d68cd3c79f6c9fa49abd9caf91326ea399afed0ad105"
 
   def install
-    bin.install "clash.meta-darwin-arm64-v1.14.4" => "clash.meta"
+    system "gunzip", "clash.meta-darwin-arm64-v#{version}.gz"
+    bin.install "clash.meta-darwin-arm64-v#{version}" => "clash.meta"
   end
 
   service do
