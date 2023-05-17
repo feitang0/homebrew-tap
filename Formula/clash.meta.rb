@@ -6,7 +6,7 @@ class ClashMeta < Formula
   sha256 "735fb8a2fda2eb9abde5d68cd3c79f6c9fa49abd9caf91326ea399afed0ad105"
 
   def install
-    system "gunzip", "clash.meta-darwin-arm64-v#{version}.gz"
+    system "gunzip", "-c", "clash.meta-darwin-arm64-v#{version}.gz" > "clash.meta-darwin-arm64-v#{version}"
     bin.install "clash.meta-darwin-arm64-v#{version}" => "clash.meta"
   end
 
