@@ -6,8 +6,12 @@ class ClashMeta < Formula
   sha256 "735fb8a2fda2eb9abde5d68cd3c79f6c9fa49abd9caf91326ea399afed0ad105"
 
   def install
-    system "gunzip", "-c", "clash.meta-darwin-arm64-v#{version}.gz" > "clash.meta-darwin-arm64-v#{version}"
-    bin.install "clash.meta-darwin-arm64-v#{version}" => "clash.meta"
+    bin.install Dir.glob("clash.meta*")[0] => "clash.meta"
+  end
+
+  def post_install
+    (var/"log/clash.meta").mkpath
+    chmod 0755, var/"log/clash.meta"
   end
 
   service do
@@ -15,6 +19,10 @@ class ClashMeta < Formula
     keep_alive true
     error_log_path var/"log/clash.meta.log"
     log_path var/"log/clash.meta.log"
+  end
+
+  test do
+    system "#{bin}/clash.meta", "-h"
   end
 end
 
