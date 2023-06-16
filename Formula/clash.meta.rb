@@ -1,9 +1,9 @@
 class ClashMeta < Formula
   desc "ClashMeta"
   homepage "https://github.com/MetaCubeX/Clash.Meta"
-  version "1.14.4"
+  version "1.14.5"
   url "https://github.com/MetaCubeX/Clash.Meta/releases/download/v#{version}/clash.meta-darwin-arm64-v#{version}.gz"
-  sha256 "735fb8a2fda2eb9abde5d68cd3c79f6c9fa49abd9caf91326ea399afed0ad105"
+  sha256 "3925a11a94408eb390321c5c907878f03f5c690d41f22318d3bdd96bd4dc402d"
 
   def install
     bin.install Dir.glob("clash.meta*")[0] => "clash.meta"
